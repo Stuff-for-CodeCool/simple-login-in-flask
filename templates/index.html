@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+<ul>
+    {% if user %}
+        <li>{{ user }}</li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    {% else %}
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+    {% endif %}
+</ul>
+{% endblock %}
+
+{% block content %}
+
+{% if user %}
+    <p>Hello, {{ user }}</p>
+{% else %}
+    <p>Hello, please log in</p>
+{% endif %}
+
+{% endblock %}
